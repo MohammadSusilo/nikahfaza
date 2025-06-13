@@ -133,7 +133,10 @@
                                                         <div class="text-center mb-3 p-2 animate__animated animate__zoomIn animate__slower">
                                                             <div class="editable mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:14px;">Kepada Yth;
                                                                 <br />Bapak/Ibu/Saudara/i</div>
-                                                            <div id="guestNameSlot" class="editable color-accent h5 font-weight-bold mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:16px;">Nama Tamu</div>
+                                                            <div id="guestNameSlot" class="editable color-accent h5 font-weight-bold mb-1 animate__animated animate__fadeInUp animate__slower" style="font-size:16px;">
+                                                                <p class="nama" id="namaTamu"></p>
+                                                                <p class="alamat" id="alamatTamu"></p>
+                                                            </div>
                                                         </div>
                                                         <button class="btn-open-invitation btn btn-primary rounded-pill mb-4 animate__animated animate__fadeInUp animate__slow" style="font-size: 14px;">Open Invitation</button>
                                                     </div>
@@ -837,6 +840,20 @@
             }
         }
         checkBrowser()
+    </script>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nama = params.get("to");
+        const alamat = params.get("alamat");
+    
+        if (nama) {
+          document.getElementById("namaTamu").textContent = `Yth. ${decodeURIComponent(nama.replace(/\+/g, ' '))}`;
+        }
+    
+        if (alamat) {
+          document.getElementById("alamatTamu").textContent = decodeURIComponent(alamat.replace(/\+/g, ' '));
+        }
     </script>
     <!-- end script -->
     <script type="2c28aea242a4c0809a04538c-text/javascript">
